@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import { getAreas, getAreaDetails } from '../src/apiCalls.js';
+import { getAreas, getAreaDetails } from './apiCalls.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
+import  NavBar from './components/NavBar/NavBar.js';
 
 class App extends Component {
   constructor(){
@@ -21,10 +22,11 @@ class App extends Component {
   componentDidMount(){
     getAreas()
     .then(data => {
-      console.log(data)
+      // console.log(data)
       const areaDetails = data.areas.map(area => {
+        // console.log(area.details);
         // getAreaDetails()
-        return fetch(`http://localhost:3001${area.details}`)
+        return fetch(`https://vrad-api.herokuapp.com${area.details}`)
         .then(res => res.json())
         .then(area => {
             return {
