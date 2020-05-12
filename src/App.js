@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import { getAreas, getAreaDetails } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/apiCalls.js'
+import { getAreas, getAreaDetails } from '../src/apiCalls.js';
+import LoginPage from './components/LoginPage/LoginPage.js';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      areas: []
+      areas: [],
+      user: {}
     }
+  }
+
+  setUserInfo = user => {
+    this.setState({ user });
   }
 
   componentDidMount(){
@@ -37,9 +43,9 @@ class App extends Component {
     console.log(this.state)
     return(
       <main>
-        {/* <Switch> */}
-          <h1>Made it</h1>
-        {/* </Switch> */}
+        <Switch>
+          <Route exact path='/' render={ () => <LoginPage userInfo={this.setUserInfo} />} />
+        </Switch>
       </main>
     )
   }
