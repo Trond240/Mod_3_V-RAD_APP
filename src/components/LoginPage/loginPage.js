@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// import NavBar from '../NavBar/NavBar.js'
+import './LoginPage.css';
 
 
 class LoginPage extends Component {
@@ -39,7 +41,7 @@ class LoginPage extends Component {
     render() {
 
         return (
-        <section>
+        <section className='login-container'>
             <h1>Rad Rentals!</h1>
             <form>
                 <input
