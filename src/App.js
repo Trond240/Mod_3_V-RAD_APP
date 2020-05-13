@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { getAreas, getAreaDetails } from '../src/apiCalls.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
+import { AreasContainer } from './components/AreasContainer/areasContainer';
 
 class App extends Component {
   constructor(){
@@ -26,6 +27,25 @@ class App extends Component {
         // getAreaDetails()
         return fetch(`http://localhost:3001${area.details}`)
         .then(res => res.json())
+        // .then(area => {
+        //   const finalDetails = area.listings.map(listing => {
+        //     return fetch(`http://localhost:3001${listing}`)
+        //     .then(res => res.json())
+        //     .then(listingInfo => {
+        //       console.log(listingInfo)
+        //       return{
+        //         listingName: listingInfo.name,
+        //         listingAddress1: listingInfo.address.street,
+        //         listingAddress2: listingInfo.address.zip,
+        //         listingId: listingInfo.listing_id,
+        //         listingDetails: listingInfo.details,
+        //         areaNickname: area.area,
+        //         // areaDetails: {...details},
+        //       }
+        //     })
+        //   })
+        //   Promise.all(finalDetails)
+        // })
         .then(area => {
             return {
               name: area.name,
@@ -40,11 +60,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.areas)
     return(
       <main>
         <Switch>
-          <Route exact path='/' render={ () => <LoginPage userInfo={this.setUserInfo} />} />
+          <Route path='/areas' exact render={ () => <AreasContainer areaInfo={this.state.areas} />} />
+          <Route path='/' exact render={ () => <LoginPage userInfo={this.setUserInfo} />} />
         </Switch>
       </main>
     )
