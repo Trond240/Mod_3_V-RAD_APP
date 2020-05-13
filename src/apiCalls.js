@@ -4,8 +4,9 @@ export const getAreas = () => {
     .catch(err => console.log(err))
 }
 
-// export const getAreaDetails = (data) => {
-//     return fetch(`http://localhost:3001${area.details}`)
-//     .then(res => res.json())
-// }
-
+export const getAreasListings = (listing) => {
+    return fetch(`http://localhost:3001${listing}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+}
