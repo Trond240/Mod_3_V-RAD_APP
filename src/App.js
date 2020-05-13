@@ -4,12 +4,16 @@ import './App.css';
 import { getAreas, getAreaDetails } from './apiCalls.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
 import NavBar from './components/NavBar/NavBar'
+import { AreasContainer } from './components/AreasContainer/areasContainer';
+import {ListingContainer} from './components/ListingContainer/listingContainer.js'
+
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
       areas: [],
+      listingList: [],
       user: {}
     }
   }
@@ -37,6 +41,14 @@ class App extends Component {
       return Promise.all(areaDetails)
     })
     .then(areas => this.setState({ areas }))
+    .catch(err => console.log(err));
+  }
+
+  getAreasListings = (listing) => {
+    const allData = fetch(`http://localhost:3001${listing}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    // .then(listing => this.setState({ listing }))
     .catch(err => console.log(err))
   }
 
@@ -46,7 +58,14 @@ class App extends Component {
       <main className='main-section'>
         <NavBar />
         <Switch>
-          <Route exact path='/' render={ () => <LoginPage userInfo={this.setUserInfo} />} />
+          <Route path='/areas/:id/listings' render={ ({ match }) => <ListingContainer 
+          listingByArea={this.state.areas.filter(areaListings => 
+          areaListings.id === parseInt(match.params.id))}
+          match={ match }
+          getListings={this.getAreasListings}
+          />} />
+          <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
+          <Route path='/' exact render={ () => <LoginPage userInfo={this.setUserInfo} />} />
         </Switch>
       </main>
     )
