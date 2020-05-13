@@ -1,4 +1,5 @@
 .nar-bar {
   display: flex;
   border: solid 1px red;
+  grid-area: 1 / 1 / 2 / 6;
 }
