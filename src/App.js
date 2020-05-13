@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import { getAreas, getAreaDetails } from './apiCalls.js';
 import LoginPage from './components/LoginPage/LoginPage.js';
-import  NavBar from './components/NavBar/NavBar.js';
+import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
   constructor(){
@@ -44,7 +43,8 @@ class App extends Component {
   render() {
     console.log(this.state)
     return(
-      <main>
+      <main className='main-section'>
+        <NavBar />
         <Switch>
           <Route exact path='/' render={ () => <LoginPage userInfo={this.setUserInfo} />} />
         </Switch>
