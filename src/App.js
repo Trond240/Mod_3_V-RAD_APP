@@ -22,36 +22,20 @@ class App extends Component {
   }
 
   componentDidMount(){
-    getAreas()
-    .then(data => {
-      console.log(data)
-      const areaDetails = data.areas.map(area => {
-        // getAreaDetails()
-        return fetch(`http://localhost:3001${area.details}`)
-        .then(res => res.json())
-        .then(area => {
-            return {
-              name: area.name,
-              ...area
-            }
+      getAreas()
+      .then(areas => {this.setState({ areas })})
+      .then(areas => this.state.areas.map(area => {
+        return area.listings.map(listing => {
+          return fetch(`http://localhost:3001${listing}`)
+          .then(res => res.json())
+          .then(listing => {
+            this.setState({listingList: [...this.state.listingList, listing]})
+          })
         })
-      })
-      return Promise.all(areaDetails)
-    })
-    .then(areas => this.setState({ areas }))
-    .catch(err => console.log(err));
-  }
-
-  getAreasListings = (listing) => {
-    const allData = fetch(`http://localhost:3001${listing}`)
-    .then(res => res.json())
-    .then(data => console.log(data))
-    // .then(listing => this.setState({ listing }))
-    .catch(err => console.log(err))
+      }))
   }
 
   render() {
-    console.log(this.state)
     return(
       <main>
         <Switch>
@@ -59,7 +43,7 @@ class App extends Component {
           listingByArea={this.state.areas.filter(areaListings => 
           areaListings.id === parseInt(match.params.id))}
           match={ match }
-          getListings={this.getAreasListings}
+          listings={this.state.listingList.filter(listing => listing.area_id === parseInt(match.params.id))}
           />} />
           <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
           <Route path='/' exact render={ () => <LoginPage userInfo={this.setUserInfo} />} />

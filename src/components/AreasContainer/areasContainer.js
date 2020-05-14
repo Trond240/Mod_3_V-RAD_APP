@@ -2,7 +2,6 @@ import React from 'react';
 import { Areas } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/Areas/areas.js';
 
 export const AreasContainer = (props) => {
-    console.log(props)
     const allAreaInfo = props.areaInfo.map(area => {
         return (
             <Areas 
