@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import { getAreas, getAreaDetails } from './apiCalls.js';
-import LoginPage from './components/LoginPage/LoginPage.js';
-import NavBar from './components/NavBar/NavBar'
+import LoginPage from './components/LoginPage/loginPage';
+import NavBar from './components/NavBar/navBar'
 import { AreasContainer } from './components/AreasContainer/areasContainer';
 import {ListingContainer} from './components/ListingContainer/listingContainer.js'
 
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   setUserInfo = user => {
-    this.setState({ user });
+    this.setState({user});
   }
 
   componentDidMount(){
@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   getAreasListings = (listing) => {
-    const allData = fetch(`http://localhost:3001${listing}`)
+    return fetch(`https://vrad-api.herokuapp.com${listing}`)
     .then(res => res.json())
     .then(data => console.log(data))
     // .then(listing => this.setState({ listing }))
@@ -53,10 +53,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+      let navBar;
+      Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar />
     return(
       <main className='main-section'>
-        <NavBar />
+             {/* {navBar} */}
+             <NavBar />
         <Switch>
           <Route path='/areas/:id/listings' render={ ({ match }) => <ListingContainer 
           listingByArea={this.state.areas.filter(areaListings => 
@@ -65,7 +67,7 @@ class App extends Component {
           getListings={this.getAreasListings}
           />} />
           <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
-          <Route path='/' exact render={ () => <LoginPage userInfo={this.setUserInfo} />} />
+          <Route path='/' exact render={ () => <LoginPage setUserInfo={this.setUserInfo} />} />
         </Switch>
       </main>
     )
