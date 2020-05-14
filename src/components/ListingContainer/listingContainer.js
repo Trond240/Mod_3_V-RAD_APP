@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ListingCard } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/ListingCard/listingCard.js'
 
 export const ListingContainer = (props) => {
     const allListings = props.listingByArea.map(area => {

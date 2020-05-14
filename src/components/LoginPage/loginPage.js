@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import NavBar from '../NavBar/NavBar.js'
-import './LoginPage.css';
+import './loginPage.css';
 
 
 class LoginPage extends Component {
@@ -72,7 +72,7 @@ class LoginPage extends Component {
                     <option value="other">Other</option>
                 </select>
                 <Link to='/areas'>
-                    <button type='submit' className="login-button" onSubmit={e => this.loginUser(e)}>Login</button>
+                    <button type='submit' className="login-button" onClick={this.loginUser}>Login</button>
                 </Link>
                 {this.state.error &&
                 <div>

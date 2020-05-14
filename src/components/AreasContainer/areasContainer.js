@@ -1,5 +1,6 @@
 import React from 'react';
-import { Areas } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/Areas/areas.js';
+import { Areas } from '../Areas/areas';
+import './areasContainer.css'
 
 export const AreasContainer = (props) => {
     console.log(props)
@@ -17,7 +18,7 @@ export const AreasContainer = (props) => {
     })
 
     return (
-    <section>
+    <section className='areas-container'>
         {allAreaInfo}
     </section>
     )
