@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListingCard } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/ListingCard/listingCard.js'
+import { ListingCard } from '../ListingCard/listingCard.js'
 
 export const ListingContainer = (props) => {
     console.log(props)
