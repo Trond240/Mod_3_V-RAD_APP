@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/Areas/areas.css';
+import './areas.css';
 
 export const Areas = (props) => {
     return (

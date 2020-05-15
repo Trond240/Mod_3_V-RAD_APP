@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import { getAreas, getAreaDetails } from '../src/apiCalls.js';
-import LoginPage from './components/LoginPage/LoginPage.js';
+import LoginPage from './components/LoginPage/loginPage';
 import { AreasContainer } from './components/AreasContainer/areasContainer';
 import {ListingContainer} from './components/ListingContainer/listingContainer.js'
 
@@ -26,7 +26,7 @@ class App extends Component {
       .then(areas => {this.setState({ areas })})
       .then(areas => this.state.areas.map(area => {
         return area.listings.map(listing => {
-          return fetch(`http://localhost:3001${listing}`)
+          return fetch(`https://vrad-api.herokuapp.com${listing}`)
           .then(res => res.json())
           .then(listing => {
             this.setState({listingList: [...this.state.listingList, listing]})

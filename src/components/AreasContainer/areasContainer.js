@@ -1,5 +1,5 @@
 import React from 'react';
-import { Areas } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/Areas/areas.js';
+import { Areas } from '../Areas/areas';
 
 export const AreasContainer = (props) => {
     const allAreaInfo = props.areaInfo.map(area => {
