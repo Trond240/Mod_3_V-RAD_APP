@@ -37,10 +37,14 @@ class App extends Component {
   }
 
   render() {
+
+    let navBar;
+    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} />
+
+
     return(
       <main className='main-section'>
-             {/* {navBar} */}
-             <NavBar />
+             {navBar}  
         <Switch>
           <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails
           match={ match }
