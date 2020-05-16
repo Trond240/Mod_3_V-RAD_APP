@@ -4,7 +4,7 @@ export const Details = (props) => {
     console.log(props)
     const allFeatures = props.features.map(feature => {
         return (
-        <li>{feature}</li>
+        <li key ={props.id}>{feature}</li>
         )
     })
     return(
@@ -21,3 +21,4 @@ export const Details = (props) => {
         </section>
     )
 }
+
