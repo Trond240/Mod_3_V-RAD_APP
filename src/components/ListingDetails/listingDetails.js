@@ -1,8 +1,10 @@
 import React from 'react';
-import { Details } from '../Detail-Information/detailInformation.js';
-
+import { Details } from '../Detail-Information/DetailInformation';
+import PropTypes from 'prop-types';
 
 export const ListingDetails = (props) => {
+
+    
 const allDetails = props.listings.map(listing => {
         return (
             <Details 
@@ -24,3 +26,9 @@ const allDetails = props.listings.map(listing => {
         </section>
     )
 }
+
+
+ListingDetails.propTypes = {
+    listings: PropTypes.string,
+}
+
