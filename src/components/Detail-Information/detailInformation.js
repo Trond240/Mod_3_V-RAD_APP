@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 export const Details = (props) => {
     console.log(props)
-    const allFeatures = props.features.map(feature => {
+    const allFeatures = props.features.map(function (feature, index) {
         return (
-        <li key ={props.id}>{feature}</li>
+        <li key ={index}>{feature}</li>
         )
     })
     return(
@@ -23,3 +25,6 @@ export const Details = (props) => {
     )
 }
 
+Details.propTypes = {
+    area: PropTypes.string,
+}
