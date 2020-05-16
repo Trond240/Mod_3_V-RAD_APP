@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListingCard } from '../ListingCard/listingCard.js'
+import PropTypes from 'prop-types';
 
 export const ListingContainer = (props) => {
     const allListings = props.listings.map(listing => {
@@ -20,3 +21,6 @@ export const ListingContainer = (props) => {
     )
 }
 
+ListingContainer.propTypes = {
+    listings: PropTypes.array
+}
