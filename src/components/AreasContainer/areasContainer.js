@@ -3,7 +3,6 @@ import { Areas } from '../Areas/areas';
 import './areasContainer.css'
 
 export const AreasContainer = (props) => {
-    console.log(props)
     const allAreaInfo = props.areaInfo.map(area => {
         return (
             <Areas 

@@ -1,34 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ListingCard } from '../ListingCard/listingCard.js'
 
 export const ListingContainer = (props) => {
-    const allListings = props.listingByArea.map(area => {
-        return area.listings.map(listing => {
-            return props.getListings(listing)
-        })
+    const allListings = props.listings.map(listing => {
+        return(
+            <ListingCard 
+            key={listing.listing_id}
+            id={listing.listing_id}
+            areaId={listing.area_id}
+            name={listing.name}     
+            />
+        )
     })
 
     return (
     <section>
-        <h1>Made-it</h1>
+        {allListings}
     </section>
     )
 }
 
-
-// export default class ListingContainer extends Component {
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             listings: []
-//         }
-//     }
-
-//     render(props) {
-//         console.log(this.props)
-//         return (
-//         <section>
-//             {allListings}
-//         </section>
-//         )
-//     }
-// }
