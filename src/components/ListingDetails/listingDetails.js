@@ -29,6 +29,6 @@ const allDetails = props.listings.map(listing => {
 
 
 ListingDetails.propTypes = {
-    listings: PropTypes.string,
+    listings: PropTypes.array,
 }
 
