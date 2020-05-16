@@ -1,5 +1,5 @@
 import React from 'react';
-import { Areas } from '../Areas/areas';
+import { Areas } from '../Areas/Areas';
 import './areasContainer.css'
 
 export const AreasContainer = (props) => {
