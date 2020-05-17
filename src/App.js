@@ -47,7 +47,7 @@ class App extends Component {
   render() {
 
     let navBar;
-    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} />
+    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} favorites={this.state.favorites} />
 
 
     return(
@@ -68,6 +68,7 @@ class App extends Component {
           />}/>
           <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
           <Route path='/' exact render={ () => <LoginPage setUserInfo={this.setUserInfo} />} />
+          {/* <Route path = '/favorites' render ={() => } /> */}
         </Switch>
       </main>
     )
