@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListingCard } from '../ListingCard/listingCard.js'
 import PropTypes from 'prop-types';
-
+import './ListingContainer.css'
 export const ListingContainer = (props) => {
     const allListings = props.listings.map(listing => {
         return(
@@ -15,7 +15,7 @@ export const ListingContainer = (props) => {
     })
 
     return (
-    <section>
+    <section className='listing-card-container'>
         {allListings}
     </section>
     )
