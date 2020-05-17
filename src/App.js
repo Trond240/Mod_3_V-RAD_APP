@@ -14,13 +14,21 @@ class App extends Component {
     this.state = {
       areas: [],
       listingList: [],
-      user: {}
+      user: {},
+      favorites: []
     }
   }
 
   setUserInfo = user => {
     this.setState({user});
   }
+
+  addToFavorites = (id) => {
+      this.setState({favorites:[...this.state.favorites,id]})
+      
+      console.log("favorite btn pressed")
+  }
+
 
   componentDidMount(){
       getAreas()
@@ -46,7 +54,7 @@ class App extends Component {
       <main className='main-section'>
              {navBar}  
         <Switch>
-          <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails
+          <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails addToFavorites = {this.addToFavorites}
           match={ match }
           listings={this.state.listingList.filter(listing => {
             return listing.listing_id === parseInt(match.params.listingID)
