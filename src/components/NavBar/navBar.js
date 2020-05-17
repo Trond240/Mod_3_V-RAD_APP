@@ -1,19 +1,32 @@
 import React from 'react';
 import './navBar.css';
+import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
-
+const NavBar = (props) => {
+  console.log(props);
+  
+  let userName = props.user.name;
+  let email = props.user.email;
+  let reason = props.user.reason;
+  console.log(userName);
+  
 return (
   <nav className='nav-bar'>
     
-    <h1>Welcome User Name to your Business Adventure</h1>  
-    <h2>User Name</h2>
-    <h3>User Email Address</h3>
+    <h1>Welcome <span>{userName}</span> to your {reason} Adventure</h1>  
+    <h2>{userName}</h2>
+    <h3>{email}</h3>
     <section className='nav-btn-container'>
       <button>Favorites</button>
-      <button>Areas</button>
-      <button>Listings</button>
-      <button>Log Out</button>
+      <NavLink to= '/areas'>  
+        Areas
+      </NavLink>
+      <NavLink to='/areas/listings'>
+        Listings
+      </NavLink> 
+      <NavLink to='/'>
+        Log Out
+      </NavLink>
     </section>
 </nav>
 )
