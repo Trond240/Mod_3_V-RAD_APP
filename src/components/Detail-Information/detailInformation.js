@@ -20,7 +20,7 @@ export const Details = (props) => {
             <p>Cost per night: ${props.cost}</p>
             <h2>Speacial Features:</h2>
             <ul>{allFeatures}</ul>
-            <button id={props.id}>Favorite</button>
+            <button id={props.id} onClick={() => props.addToFavorites(props.id)}>Favorite</button>
         </section>
     )
 }
