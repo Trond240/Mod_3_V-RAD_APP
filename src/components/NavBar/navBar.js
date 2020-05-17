@@ -17,7 +17,10 @@ return (
     <h2>{userName}</h2>
     <h3>{email}</h3>
     <section className='nav-btn-container'>
-      <button>Favorites</button>
+    <NavLink to='/favorites'>
+      <span>{`${props.favorites.length}`}</span>
+      {props.favorites.length === 1 ? ` Favorite` : ` Favorites`}
+    </NavLink>
       <NavLink to= '/areas'>  
         Areas
       </NavLink>
