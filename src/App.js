@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   setUserInfo = user => {
-    this.setState({user});
+      this.setState({user});
   }
 
   addToFavorites = (id) => {
@@ -47,7 +47,7 @@ class App extends Component {
   render() {
 
     let navBar;
-    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} favorites={this.state.favorites} />
+    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} favorites={this.state.favorites} setUserInfo={this.setUserInfo} />
 
 
     return(
