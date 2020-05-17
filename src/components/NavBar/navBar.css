@@ -17,3 +17,8 @@
   width: 30%;  
   height: 50px;
 }
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+}
