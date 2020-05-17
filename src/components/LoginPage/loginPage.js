@@ -26,7 +26,8 @@ class LoginPage extends Component {
             this.props.setUserInfo({
                 name: this.state.name,
                 email: this.state.email,
-                reason: this.state.reason
+                reason: this.state.reason,
+                favorites: []
             });
             this.setState({
                 name: '',
