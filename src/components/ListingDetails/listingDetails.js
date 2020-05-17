@@ -1,8 +1,11 @@
 import React from 'react';
-import { Details } from '../Detail-Information/detailInformation.js';
-
+import { Details } from '../Detail-Information/DetailInformation';
+import PropTypes from 'prop-types';
+import './listingDetails.css'
 
 export const ListingDetails = (props) => {
+
+    
 const allDetails = props.listings.map(listing => {
         return (
             <Details 
@@ -15,12 +18,19 @@ const allDetails = props.listings.map(listing => {
                 beds={listing.details.beds}
                 cost={listing.details.cost_per_night}
                 features={listing.details.features}
+                addToFavorites = {props.addToFavorites}
             />
         )
     })
     return(
-        <section>
+        <section className='listing-details-container'>
             {allDetails}
         </section>
     )
 }
+
+
+ListingDetails.propTypes = {
+    listings: PropTypes.array,
+}
+

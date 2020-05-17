@@ -1,5 +1,6 @@
 import React from 'react';
-import { Areas } from '../Areas/areas';
+import { Areas } from '../Areas/Areas';
+import './areasContainer.css'
 
 export const AreasContainer = (props) => {
     const allAreaInfo = props.areaInfo.map(area => {
@@ -16,7 +17,7 @@ export const AreasContainer = (props) => {
     })
 
     return (
-    <section>
+    <section className='areas-container'>
         {allAreaInfo}
     </section>
     )

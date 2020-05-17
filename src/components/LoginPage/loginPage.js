@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './loginPage.css';
 
 
 class LoginPage extends Component {
@@ -25,7 +26,8 @@ class LoginPage extends Component {
             this.props.setUserInfo({
                 name: this.state.name,
                 email: this.state.email,
-                reason: this.state.reason
+                reason: this.state.reason,
+                favorites: []
             });
             this.setState({
                 name: '',
@@ -39,7 +41,7 @@ class LoginPage extends Component {
     render() {
 
         return (
-        <section>
+        <section className='login-container'>
             <h1>Rad Rentals!</h1>
             <form>
                 <input
@@ -62,7 +64,7 @@ class LoginPage extends Component {
                     <label htmlFor="reason-for-login">Reason for visit</label>
                 </div>
                 <select onChange={e => this.handleChange(e)} id='reason-for-login' name='reason' value={this.state.reason}>
-                    <option disabled selected value>
+                    <option  defaultValue>
                     -- select an option --
                     </option>
                     <option value="business">Business</option>
@@ -70,7 +72,7 @@ class LoginPage extends Component {
                     <option value="other">Other</option>
                 </select>
                 <Link to='/areas'>
-                    <button type='submit' className="login-button" onSubmit={e => this.loginUser(e)}>Login</button>
+                    <button type='submit' className="login-button" onClick={this.loginUser}>Login</button>
                 </Link>
                 {this.state.error &&
                 <div>

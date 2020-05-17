@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
-import { getAreas, getAreaDetails } from '../src/apiCalls.js';
+import { getAreas } from '../src/apiCalls.js';
 import LoginPage from './components/LoginPage/loginPage';
-import { AreasContainer } from './components/AreasContainer/areasContainer';
+import { AreasContainer } from './components/AreasContainer/AreasContainer';
 import {ListingContainer} from './components/ListingContainer/listingContainer.js';
-import { ListingDetails } from './components/ListingDetails/listingDetails.js'
+import { ListingDetails } from './components/ListingDetails/listingDetails.js';
+import NavBar from './components/NavBar/NavBar';
 
 class App extends Component {
   constructor(){
@@ -14,13 +14,21 @@ class App extends Component {
     this.state = {
       areas: [],
       listingList: [],
-      user: {}
+      user: {},
+      favorites: []
     }
   }
 
   setUserInfo = user => {
-    this.setState({ user });
+    this.setState({user});
   }
+
+  addToFavorites = (id) => {
+      this.setState({favorites:[...this.state.favorites,id]})
+      
+      console.log("favorite btn pressed")
+  }
+
 
   componentDidMount(){
       getAreas()
@@ -37,10 +45,16 @@ class App extends Component {
   }
 
   render() {
+
+    let navBar;
+    Object.keys(this.state.user).length === 0 ? navBar = "" : navBar = <NavBar user ={this.state.user} />
+
+
     return(
-      <main>
+      <main className='main-section'>
+             {navBar}  
         <Switch>
-          <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails
+          <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails addToFavorites = {this.addToFavorites}
           match={ match }
           listings={this.state.listingList.filter(listing => {
             return listing.listing_id === parseInt(match.params.listingID)
@@ -53,7 +67,7 @@ class App extends Component {
           listings={this.state.listingList.filter(listing => listing.area_id === parseInt(match.params.id))}
           />}/>
           <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
-          <Route path='/' exact render={ () => <LoginPage userInfo={this.setUserInfo} />} />
+          <Route path='/' exact render={ () => <LoginPage setUserInfo={this.setUserInfo} />} />
         </Switch>
       </main>
     )
