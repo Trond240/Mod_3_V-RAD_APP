@@ -3,10 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import { getAreas } from '../src/apiCalls.js';
 import LoginPage from './components/LoginPage/loginPage';
-import { AreasContainer } from './components/AreasContainer/AreasContainer';
+import { AreasContainer } from './components/AreasContainer/areasContainer';
 import {ListingContainer} from './components/ListingContainer/listingContainer.js';
 import { ListingDetails } from './components/ListingDetails/listingDetails.js';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar/navBar';
 
 class App extends Component {
   constructor(){
