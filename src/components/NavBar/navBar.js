@@ -21,17 +21,16 @@ return (
     </section>
     <section className='nav-btn-container'>
     <NavLink to='/favorites'>
-      <span>{`${props.favorites.length}`}</span>
-      {props.favorites.length === 1 ? ` Favorite` : ` Favorites`}
+      <button className='nav-btn' disabled={props.favorites.length === 0}> {`${props.favorites.length}`} {props.favorites.length > 0 ? ` Favorites` : `No Favorites`}</button>
     </NavLink>
       <NavLink to= '/areas'>  
-        Areas
+      <button className='nav-btn'>Areas</button>  
       </NavLink>
       <NavLink to='/areas/listings'>
-        Listings
+        <button className='nav-btn'>Listings</button>
       </NavLink> 
       <NavLink to='/'>
-        <button className='logout-btn' onClick={()=> props.setUserInfo({})}>Log Out</button>
+        <button className='nav-btn' onClick={()=> props.setUserInfo({})}>Log Out</button>
       </NavLink>
     </section>
 </nav>
