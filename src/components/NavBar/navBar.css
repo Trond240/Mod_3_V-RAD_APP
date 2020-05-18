@@ -14,11 +14,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30%;  
+  width: 40%;  
   height: 50px;
 }
 
 .user-info-container {
+  color: #1D9AF2;
   display: flex;
   flex-direction: column;
+}
+
+.nav-btn {
+  color: #1D9AF2;
+  background-color: #292D3E;
+  border: 1px solid #1D9AF2;
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  height:32px;
+  font-size:14px;
+  transition: all 0.2s ease-in-out;
+  }
+  .nav-btn:hover {
+  transform: scale(1.1);
+  }
+
+nav-bar h1 {
+  color: #1D9AF2;
 }
