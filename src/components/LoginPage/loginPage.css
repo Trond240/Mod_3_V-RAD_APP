@@ -23,7 +23,12 @@
 }
 
 .login-container input {
-    color: rgb(3, 0, 0, 1);
+    color: #1D9AF2;
+    background-color: #292D3E;
+    border: 1px solid #1D9AF2;
+    border-radius: 4px;
+    height: 32px;
+    padding: 0 15px;
 }
 
 form {
@@ -31,4 +36,31 @@ form {
     flex-direction: column;
     justify-content: space-around;
     height: 200px;
+}
+
+.login-button {
+    color: #1D9AF2;
+    background-color: #292D3E;
+    border: 1px solid #1D9AF2;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 32px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    }
+
+.login-button:hover {
+    transform: scale(1.1);
+    }
+
+.login-container select {
+    color: #1D9AF2;
+    background-color: #292D3E;
+    border: 1px solid #1D9AF2;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    height: 32px;
+    font-size: 14px;
 }

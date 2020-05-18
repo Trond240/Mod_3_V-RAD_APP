@@ -9,7 +9,7 @@ export const Areas = (props) => {
             <h3>Location: {props.locationName}</h3>
             <h3>{props.about}</h3>
             <Link to={`/areas/${props.id}/listings`}>
-                <button id={props.id}>View Listings</button>
+                <button className='view-listing-btn' id={props.id}>View Listings</button>
             </Link>
         </section>
     )

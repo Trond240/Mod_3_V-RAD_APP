@@ -1,9 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './detailCard.css'
 
 export const Details = (props) => {
     console.log(props)
+    let favorites = props.favorites; 
+    
+    let favoriteOrUnfavoriteBtn;
+
+
+    if(favorites.includes(props.id)) {
+        favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.removeFromFavorites(props.id)}>Unfavorite</button> 
+    } else {
+        favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.addToFavorites(props.id)}>Favorite</button>
+    }
+
     const allFeatures = props.features.map(function (feature, index) {
         return (
         <li key ={index}>{feature}</li>
@@ -11,7 +22,7 @@ export const Details = (props) => {
     })
     return(
         
-        <section>
+        <section className='detail-card'>
             <h1>{props.area}</h1>
             <p>Street: {props.street}</p>
             <p>Zip: {props.zip}</p>
@@ -20,7 +31,7 @@ export const Details = (props) => {
             <p>Cost per night: ${props.cost}</p>
             <h2>Speacial Features:</h2>
             <ul>{allFeatures}</ul>
-            <button id={props.id} onClick={() => props.addToFavorites(props.id)}>Favorite</button>
+            {favoriteOrUnfavoriteBtn}
         </section>
     )
 }
