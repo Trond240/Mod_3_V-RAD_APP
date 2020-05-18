@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ListingCrad.css'
 
 export const ListingCard = (props) => {
+
     return (
         <section className='listing-card'>
             <h2>{props.name}</h2>
