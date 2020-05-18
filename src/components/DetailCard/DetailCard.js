@@ -10,9 +10,9 @@ export const Details = (props) => {
 
 
     if(favorites.includes(props.id)) {
-        favoriteOrUnfavoriteBtn = <button id={props.id} onClick={() => props.removeFromFavorites(props.id)}>Unfavorite</button> 
+        favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.removeFromFavorites(props.id)}>Unfavorite</button> 
     } else {
-        favoriteOrUnfavoriteBtn = <button id={props.id} onClick={() => props.addToFavorites(props.id)}>Favorite</button>
+        favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.addToFavorites(props.id)}>Favorite</button>
     }
 
     const allFeatures = props.features.map(function (feature, index) {
