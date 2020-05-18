@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react'
+import { render, getByText, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import { Details } from './DetailCard'
 
@@ -38,4 +38,31 @@ describe('Details Card', () => {
         const featuresElement = getByText("bed")
         expect(featuresElement).toBeInTheDocument()
     });
+
+    it('Should perform favoriting function on click of the button', () => {
+        const mockFavoriting = jest.fn()
+        
+        const { getByText } = render(
+            <Details 
+                area = {'Rhino'} 
+                street = {'123 Main Street'} 
+                zip = {'80122'}
+                beds = {'1'}
+                baths ={'2'}
+                cost = {'123'}
+                features = {['bed', 'side table', 'cofee maker']}
+                favorites = {[]}
+                id = {'1'}
+                addToFavorites = {mockFavoriting}
+            />)
+
+        const favBtn = getByText("Favorite")
+        expect(favBtn).toBeInTheDocument()
+
+        fireEvent.click(getByText("Favorite"))
+        expect(mockFavoriting).toHaveBeenCalledWith("1")
+    });
+
+
+
 });
