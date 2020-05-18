@@ -5,10 +5,6 @@ import './listingDetails.css'
 
 export const ListingDetails = (props) => {
     let allDetails;
-
-    if (props.favorites.length ===0) {
-        allDetails = <p>No Favorites Found</p>
-    } else {
             allDetails = props.listings.map(listing => {
         return (
         <Details 
@@ -27,7 +23,6 @@ export const ListingDetails = (props) => {
         />
         )
         })
-    }
     return(
         <section className='listing-details-container'>
             {allDetails}
