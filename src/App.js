@@ -69,7 +69,7 @@ class App extends Component {
 
     return(
       <main className='main-section'>
-             {navBar}  
+        {navBar}  
         <Switch>
          
           <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails 
