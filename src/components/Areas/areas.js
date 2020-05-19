@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './areas.css';
+import PropTypes from 'prop-types';
 
 export const Areas = (props) => {
     return (
@@ -13,4 +14,12 @@ export const Areas = (props) => {
             </Link>
         </section>
     )
+}
+
+
+Areas.propTypes = {
+    name:PropTypes.string,
+    locationName:PropTypes.string,
+    about: PropTypes.string,
+    id: PropTypes.number
 }
