@@ -28,7 +28,22 @@ describe('Details Card', () => {
     });
 
     it.skip('Should login the user with the correct information', () => {
+        const mockLoginUser = jest.fn()
 
+        const { getByText, getByPlaceholderText } = render(
+            <BrowserRouter>
+                <LoginPage
+                loginUser={mockLoginUser} 
+                />
+            </BrowserRouter>
+            )
+
+            const loginBtn = getByText('Login')
+            expect(loginBtn).toBeInTheDocument();
+
+            fireEvent.change(getByPlaceholderText('name'), {target: {value: 'Trond'}});
+            fireEvent.change(getByPlaceholderText('email'), {target: {value: 'trondation@gamil.com'}});
+            fireEvent.click(getByText('Login'));  
+            expect(mockLoginUser).toHaveBeenCalledWith({name: 'Trond', email: 'trondation@gamil.com'})
+        });
     });
-
-});
