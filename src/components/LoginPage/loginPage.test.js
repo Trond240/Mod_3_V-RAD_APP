@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 
-describe('Details Card', () => {
+describe('Login Page', () => {
     it('Should render the login page', () => {
         const { getByText, getByPlaceholderText } = render(
             <BrowserRouter>
