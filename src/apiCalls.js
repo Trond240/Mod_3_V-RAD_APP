@@ -18,9 +18,8 @@ export const getAreas = () => {
 }
 
 export const getAreasListings = (listing) => {
-    return fetch(`http://localhost:3001${listing}`)
+    return fetch(`https://vrad-api.herokuapp.com${listing}`)
     .then(res => res.json())
-    .then(data => console.log(data))
     .catch(err => console.log(err))
 }
 
