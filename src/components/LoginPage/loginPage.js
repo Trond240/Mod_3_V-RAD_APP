@@ -27,7 +27,6 @@ class LoginPage extends Component {
                 name: this.state.name,
                 email: this.state.email,
                 reason: this.state.reason,
-                favorites: []
             });
             this.setState({
                 name: '',
