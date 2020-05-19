@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { render, getByText, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import { Details } from './DetailCard'
@@ -10,10 +11,10 @@ describe('Details Card', () => {
         <Details 
             area = {'Rhino'} 
             street = {'123 Main Street'} 
-            zip = {'80122'}
-            beds = {'1'}
-            baths ={'2'}
-            cost = {'123'}
+            zip = {80122}
+            beds = {1}
+            baths ={2}
+            cost = {123}
             features = {['bed', 'side table', 'cofee maker']}
             favorites = {[]}
         />)
@@ -46,13 +47,13 @@ describe('Details Card', () => {
             <Details 
                 area = {'Rhino'} 
                 street = {'123 Main Street'} 
-                zip = {'80122'}
-                beds = {'1'}
-                baths ={'2'}
-                cost = {'123'}
+                zip = {80122}
+                beds = {1}
+                baths ={2}
+                cost = {123}
                 features = {['bed', 'side table', 'cofee maker']}
                 favorites = {[]}
-                id = {'1'}
+                id = {1}
                 addToFavorites = {mockFavoriting}
             />)
 
@@ -60,9 +61,9 @@ describe('Details Card', () => {
         expect(favBtn).toBeInTheDocument()
 
         fireEvent.click(getByText("Favorite"))
-        expect(mockFavoriting).toHaveBeenCalledWith("1")
+        expect(mockFavoriting).toHaveBeenCalledWith(1)
     });
 
 
-
+    
 });
