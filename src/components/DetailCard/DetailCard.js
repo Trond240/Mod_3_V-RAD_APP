@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './detailCard.css'
 
 export const Details = (props) => {
-    console.log(props)
     let favorites = props.favorites; 
     
     let favoriteOrUnfavoriteBtn;
@@ -39,7 +38,7 @@ export const Details = (props) => {
 Details.propTypes = {
     area: PropTypes.string,
     street: PropTypes.string,
-    zip: PropTypes.number,
+    zip: PropTypes.string,
     beds: PropTypes.number,
     baths: PropTypes.number,
     cost: PropTypes.number,
