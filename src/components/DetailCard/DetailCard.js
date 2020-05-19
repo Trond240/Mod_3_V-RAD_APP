@@ -39,7 +39,7 @@ export const Details = (props) => {
 Details.propTypes = {
     area: PropTypes.string,
     street: PropTypes.string,
-    zip: PropTypes.string,
+    zip: PropTypes.number,
     beds: PropTypes.number,
     baths: PropTypes.number,
     cost: PropTypes.number,
