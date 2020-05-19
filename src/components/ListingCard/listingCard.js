@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './listingCrad.css'
+import PropTypes from 'prop-types';
+
 
 export const ListingCard = (props) => {
 
@@ -12,4 +14,11 @@ export const ListingCard = (props) => {
             </Link>
         </section>
     )
+}
+
+
+ListingCard.propTypes = {
+    name: PropTypes.string,
+    areaId: PropTypes.number,
+    id: PropTypes.number
 }

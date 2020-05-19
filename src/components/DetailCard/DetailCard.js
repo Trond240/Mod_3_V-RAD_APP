@@ -38,4 +38,12 @@ export const Details = (props) => {
 
 Details.propTypes = {
     area: PropTypes.string,
+    street: PropTypes.string,
+    zip: PropTypes.string,
+    beds: PropTypes.number,
+    baths: PropTypes.number,
+    cost: PropTypes.number,
+    features: PropTypes.array,
+    removeFromFavorites: PropTypes.func,
+    addToFavorites:PropTypes.func
 }
