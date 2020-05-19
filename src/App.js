@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 import { getAreas } from '../src/apiCalls.js';
-import LoginPage from './components/LoginPage/loginPage';
+import  LoginPage from './components/LoginPage/loginPage';
 import { AreasContainer } from './components/AreasContainer/areasContainer';
-import {ListingContainer} from './components/ListingContainer/listingContainer.js';
+import { ListingContainer } from './components/ListingContainer/listingContainer.js';
 import { ListingDetails } from './components/ListingDetails/listingDetails.js';
 import NavBar from './components/NavBar/navBar';
 
