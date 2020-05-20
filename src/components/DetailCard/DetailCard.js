@@ -28,9 +28,9 @@ export const Details = (props) => {
         
         <section className='detail-card'>
             <div className="image-container">
-                <img src={`/images/${props.id}_a.jpg`} />
-                <img src={`/images/${props.id}_b.jpg`} />
-                <img src={`/images/${props.id}_c.jpg`} />
+                <img className="property-img" src={`/images/${props.id}_a.jpg`} alt={`Images of ${props.steet}`} />
+                <img className="property-img" src={`/images/${props.id}_b.jpg`} alt={`Images of ${props.steet}`} />
+                <img className="property-img" src={`/images/${props.id}_c.jpg`} alt={`Images of ${props.steet}`} />
             </div>
             <h1>{props.area}</h1>
             <ul>
@@ -50,7 +50,7 @@ export const Details = (props) => {
 Details.propTypes = {
     area: PropTypes.string,
     street: PropTypes.string,
-    zip: PropTypes.string,
+    zip: PropTypes.number,
     beds: PropTypes.number,
     baths: PropTypes.number,
     cost: PropTypes.number,
