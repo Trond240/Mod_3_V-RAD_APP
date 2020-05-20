@@ -10,9 +10,9 @@ export const Areas = (props) => {
   
     return (
         <section className='area-card'>
-            <h3>{props.name}</h3>
+            <h3 className="areas-title">{props.name}</h3>
             <h3>Location: {props.locationName}</h3>
-            <h3>{props.about}</h3>
+            <p className="about-paragraph">{props.about}</p>
             <Link to={`/areas/${props.id}/listings`}>
                 <button className='view-listing-btn' id={props.id}>View Listings</button>
             </Link>
