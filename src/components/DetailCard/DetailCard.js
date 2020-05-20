@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import './detailCard.css'
 
 export const Details = (props) => {
+    
     let favorites = props.favorites; 
     
     let favoriteOrUnfavoriteBtn;
+
+    // for (let prop in props) {
+    //     console.log(`${prop} propType = ${typeof props[prop]}`)
+    // }
 
 
     if(favorites.includes(props.id)) {
@@ -22,12 +27,19 @@ export const Details = (props) => {
     return(
         
         <section className='detail-card'>
+            <div className="image-container">
+                <img src={`/images/${props.id}_a.jpg`} />
+                <img src={`/images/${props.id}_b.jpg`} />
+                <img src={`/images/${props.id}_c.jpg`} />
+            </div>
             <h1>{props.area}</h1>
-            <p>Street: {props.street}</p>
-            <p>Zip: {props.zip}</p>
-            <p>Number of Beds: {props.beds}</p>
-            <p>Number of bath: {props.baths}</p>
-            <p>Cost per night: ${props.cost}</p>
+            <ul>
+                <li>Street: {props.street}</li>
+                <li>Zip: {props.zip}</li>
+                <li>Number of Beds: {props.beds}</li>
+                <li>Number of bath: {props.baths}</li>
+                <li>Cost per night: ${props.cost}</li>
+            </ul>
             <h2>Speacial Features:</h2>
             <ul>{allFeatures}</ul>
             {favoriteOrUnfavoriteBtn}
