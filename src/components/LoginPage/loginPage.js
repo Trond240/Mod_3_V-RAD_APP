@@ -62,8 +62,8 @@ class LoginPage extends Component {
                 <div>  
                     <label htmlFor="reason-for-login">Reason for visit</label>
                 </div>
-                <select onChange={e => this.handleChange(e)} id='reason-for-login' name='reason' value={this.state.reason}>
-                    <option  defaultValue>
+                <select data-testid="dropdown" onChange={e => this.handleChange(e)} id='reason-for-login' name='reason' value={this.state.reason}>
+                    <option  defaultValue  >
                     -- select an option --
                     </option>
                     <option value="business">Business</option>
