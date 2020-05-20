@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitForElement, fireEvent } from '@testing-library/react';
+import { render, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
@@ -28,7 +28,7 @@ const listingMock = {
   "name": "Hip RiNo Party Spot",
   "address": {
       "street": "2250 Lawrence St",
-      "zip": "80205"
+      "zip": 80205
   },
   "details": {
       "neighborhood_id": 5124122,
@@ -100,7 +100,7 @@ describe('App', () => {
         fireEvent.click(getByText('Login')); 
 
 
-        const area = await waitForElement( () => getByText("River North")) 
+        const area = await waitFor( () => getByText("River North")) 
 
         expect(area).toBeInTheDocument()
 
@@ -120,13 +120,13 @@ describe('App', () => {
         fireEvent.click(getByText('Login')); 
 
 
-        const area = await waitForElement( () => getByText("River North")) 
+        const area = await waitFor( () => getByText("River North")) 
 
         expect(area).toBeInTheDocument()
         
         fireEvent.click(getByText('View Listings')); 
 
-        const listing = await waitForElement( () => getByText("Hip RiNo Party Spot")) 
+        const listing = await waitFor( () => getByText("Hip RiNo Party Spot")) 
         expect(listing).toBeInTheDocument()
   });
 
@@ -141,17 +141,17 @@ describe('App', () => {
     fireEvent.click(getByText('Login')); 
 
 
-    const area = await waitForElement( () => getByText("River North")) 
+    const area = await waitFor( () => getByText("River North")) 
     expect(area).toBeInTheDocument()
     
     fireEvent.click(getByText('View Listings')); 
 
-    const listingName = await waitForElement( () => getByText("Hip RiNo Party Spot")) 
+    const listingName = await waitFor( () => getByText("Hip RiNo Party Spot")) 
     expect(listingName).toBeInTheDocument()
 
     fireEvent.click(getByText('View Details')); 
 
-    const detailsName = await waitForElement( () => getByText("rino")) 
+    const detailsName = await waitFor( () => getByText("rino")) 
     expect(detailsName).toBeInTheDocument()
 
 });
