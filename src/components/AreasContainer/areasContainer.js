@@ -1,5 +1,5 @@
 import React from 'react';
-import { Areas } from '/Users/trondmakonese/mod_3/V-RAD/vrad-project/src/components/Areas/areas.js';
+import { Areas } from '../Areas/areas.js';
 import './areasContainer.css'
 import PropTypes from 'prop-types';
 
