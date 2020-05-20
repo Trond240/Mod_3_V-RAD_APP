@@ -15,12 +15,12 @@ describe('Areas Container', () => {
                     areaInfo={[
                         {about:"Sample Text", 
                         id:"1", 
-                        listingList:["/api/v1/listings/3921", "/api/v1/listings/56"], 
+                        listings:["/api/v1/listings/3921", "/api/v1/listings/56"], 
                         location: 'Down town',
                         name: "Park Hill"},
                         {about:"Sample Text two", 
                         id:"2", 
-                        listingList:["/api/v1/listings/3921", "/api/v1/listings/56"], 
+                        listings:["/api/v1/listings/3921", "/api/v1/listings/56"], 
                         location: 'Green Valley',
                         name: "Rhino"}
                     ]}
