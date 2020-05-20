@@ -34,5 +34,4 @@ describe('Lisitng Container', () => {
         const nameTwoEl = getByText('My House');
         expect(nameTwoEl).toBeInTheDocument(); 
     });
-
 });
