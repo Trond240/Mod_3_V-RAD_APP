@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
 import { getAreas, getAreasListings } from './apiCalls';
-import { BrowserRouter } from 'react-router-dom';
+
 
 
 
