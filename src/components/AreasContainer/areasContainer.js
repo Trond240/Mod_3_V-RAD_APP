@@ -1,5 +1,5 @@
 import React from 'react';
-import { Areas } from '../Areas/areas.js';
+import { Areas } from '../Areas/Areas';
 import './areasContainer.css'
 import PropTypes from 'prop-types';
 
