@@ -1,9 +1,11 @@
 import React from 'react';
-import { render, waitFor, fireEvent } from '@testing-library/react';
+import { render, waitForElement, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
-import { getAreas, getAreasListings } from './apiCalls'
+import { getAreas, getAreasListings } from './apiCalls';
+import { BrowserRouter } from 'react-router-dom';
+
 
 
 jest.mock('./apiCalls')
@@ -87,13 +89,7 @@ describe('App', () => {
 
   })
 
-  describe ("Areas Container Integration", () => {
-
-    
-      
-      
-
-      
+  describe ("Areas Container Integration", () => {   
       it('As a logged in user I should see a list of areas', async () => {
         
         const { getByText, getByPlaceholderText, getByTestId, debug} = renderApp()
@@ -104,7 +100,7 @@ describe('App', () => {
         fireEvent.click(getByText('Login')); 
 
 
-        const area = await waitFor( () => getByText("River North")) 
+        const area = await waitForElement( () => getByText("River North")) 
 
         expect(area).toBeInTheDocument()
 
@@ -114,28 +110,51 @@ describe('App', () => {
 
   })
 
-  // it('Should render areas after login', async () => {
-  //   getAreas.mockResolvedValueOnce([
-  //     {about:"Sample Text", 
-  //     id:"1", 
-  //     listingList:["/api/v1/listings/3921", "/api/v1/listings/56"], 
-  //     name: "Park Hill"},
-  //     {about:"Sample Text two", 
-  //     id:"2", 
-  //     listingList:["/api/v1/listings/3921", "/api/v1/listings/56"], 
-  //     name: "Rhino"}])
+  it('Should render all lisitngs when the view listings button is clicked', async () => {
+
+        const { getByText, getByPlaceholderText, getByTestId, debug} = renderApp()
+
+        fireEvent.change(getByPlaceholderText('name'), {target: {value: 'Trond'}});
+        fireEvent.change(getByPlaceholderText('email'), {target: {value: 'trondation@gamil.com'}});
+        fireEvent.change(getByTestId('dropdown'), {target: {value: 'business'}})
+        fireEvent.click(getByText('Login')); 
+
+
+        const area = await waitForElement( () => getByText("River North")) 
+
+        expect(area).toBeInTheDocument()
+        
+        fireEvent.click(getByText('View Listings')); 
+
+        const listing = await waitForElement( () => getByText("Hip RiNo Party Spot")) 
+        expect(listing).toBeInTheDocument()
+  });
+
+
+  it('Should render lisitng detials when the view details button is clicked', async () => {
+
+    const { getByText, getByPlaceholderText, getByTestId, debug} = renderApp()
+
+    fireEvent.change(getByPlaceholderText('name'), {target: {value: 'Trond'}});
+    fireEvent.change(getByPlaceholderText('email'), {target: {value: 'trondation@gamil.com'}});
+    fireEvent.change(getByTestId('dropdown'), {target: {value: 'business'}})
+    fireEvent.click(getByText('Login')); 
+
+
+    const area = await waitForElement( () => getByText("River North")) 
+    expect(area).toBeInTheDocument()
     
-  //     const { getByText } = render(
-  //     <BrowserRouter>
-  //     <App />)
-  //     </BrowserRouter>)
+    fireEvent.click(getByText('View Listings')); 
 
-  // });
+    const listingName = await waitForElement( () => getByText("Hip RiNo Party Spot")) 
+    expect(listingName).toBeInTheDocument()
 
+    fireEvent.click(getByText('View Details')); 
 
+    const detailsName = await waitForElement( () => getByText("rino")) 
+    expect(detailsName).toBeInTheDocument()
 
-
-
+});
 });
 
 
