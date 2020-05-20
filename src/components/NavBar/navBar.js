@@ -4,13 +4,11 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const NavBar = (props) => {
-  console.log(props);
   
   let userName = props.user.name;
   let email = props.user.email;
   let reason = props.user.reason;
   let upperCaseReason = reason.replace(/^./, reason[0].toUpperCase())
-  console.log(userName);
   
   return (
     <nav className='nav-bar'>
