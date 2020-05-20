@@ -3,16 +3,12 @@ import PropTypes from 'prop-types';
 import './detailCard.css'
 
 export const Details = (props) => {
-    
+
     let favorites = props.favorites; 
     
     let favoriteOrUnfavoriteBtn;
 
-    // for (let prop in props) {
-    //     console.log(`${prop} propType = ${typeof props[prop]}`)
-    // }
-
-
+   
     if(favorites.includes(props.id)) {
         favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.removeFromFavorites(props.id)}>Unfavorite</button> 
     } else {
@@ -32,8 +28,8 @@ export const Details = (props) => {
                 <img className="property-img" src={`/images/${props.id}_b.jpg`} alt={`Images of ${props.steet}`} />
                 <img className="property-img" src={`/images/${props.id}_c.jpg`} alt={`Images of ${props.steet}`} />
             </div>
-            <h1>{props.area}</h1>
-            <ul>
+            <h1 className="area-name-title">{props.area}</h1>
+            <ul className="details-list">
                 <li>Street: {props.street}</li>
                 <li>Zip: {props.zip}</li>
                 <li>Number of Beds: {props.beds}</li>
