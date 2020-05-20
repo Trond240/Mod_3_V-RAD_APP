@@ -75,7 +75,7 @@ class LoginPage extends Component {
                 </Link>
                 {this.state.error &&
                 <div>
-                    <p>{this.state.error}</p>
+                    <p className="error-message">{this.state.error}</p>
                 </div>
                 }
             </form>
