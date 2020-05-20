@@ -24,9 +24,6 @@ const NavBar = (props) => {
       <NavLink to= '/areas'>  
         <button className='nav-btn'>Areas</button>  
       </NavLink>
-      <NavLink to='/areas/listings'>
-        <button className='nav-btn'>Listings</button>
-      </NavLink> 
       <NavLink to='/'>
         <button className='nav-btn' onClick={()=> props.setUserInfo({})}>Log Out</button>
       </NavLink>
