@@ -27,23 +27,30 @@ describe('Login Page', () => {
             expect(loginBtn).toBeInTheDocument();
     });
 
-    it.skip('Should login the user with the correct information', () => {
+    it('Should login the user with the correct information', () => {
         const mockLoginUser = jest.fn()
 
-        const { getByText, getByPlaceholderText } = render(
+        
+        const { getByText, getByPlaceholderText, debug, getByTestId } = render(
             <BrowserRouter>
                 <LoginPage
-                loginUser={mockLoginUser} 
+                setUserInfo={mockLoginUser} 
                 />
             </BrowserRouter>
             )
-
+            
+            // console.log(mockLoginUser)
+            
+            
             const loginBtn = getByText('Login')
             expect(loginBtn).toBeInTheDocument();
-
+            // debug()
+            
             fireEvent.change(getByPlaceholderText('name'), {target: {value: 'Trond'}});
             fireEvent.change(getByPlaceholderText('email'), {target: {value: 'trondation@gamil.com'}});
+            fireEvent.change(getByTestId('dropdown'), {target: {value: 'business'}})
             fireEvent.click(getByText('Login'));  
-            expect(mockLoginUser).toHaveBeenCalledWith({name: 'Trond', email: 'trondation@gamil.com'})
+            expect(mockLoginUser).toHaveBeenCalledTimes(1)
+            expect(mockLoginUser).toHaveBeenCalledWith({name: 'Trond', email: 'trondation@gamil.com', reason: 'business'})
         });
     });
