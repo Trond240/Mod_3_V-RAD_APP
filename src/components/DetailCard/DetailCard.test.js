@@ -4,20 +4,29 @@ import { render, getByText, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import { Details } from './DetailCard'
 
+const mockFavoriting = jest.fn()
 
-describe('Details Card', () => {
-    it('Should render details card with correct text', () => {
-        const { getByText } = render(
+const renderDetailsCard = () => {
+    return render(
         <Details 
             area = {'Rhino'} 
             street = {'123 Main Street'} 
-            zip = {80122}
+            zip = {"80122"}
             beds = {1}
             baths ={2}
             cost = {123}
             features = {['bed', 'side table', 'cofee maker']}
             favorites = {[]}
+            addToFavorites = {mockFavoriting}
+            id = {1}
         />)
+}
+
+describe('Details Card', () => {
+    it('Should render details card with correct text', () => {
+        
+        const { getByText } = renderDetailsCard()
+
         const areaElement = getByText("Rhino")
         expect(areaElement).toBeInTheDocument()
         
@@ -41,21 +50,9 @@ describe('Details Card', () => {
     });
 
     it('Should perform favoriting function on click of the button', () => {
-        const mockFavoriting = jest.fn()
+       
         
-        const { getByText } = render(
-            <Details 
-                area = {'Rhino'} 
-                street = {'123 Main Street'} 
-                zip = {80122}
-                beds = {1}
-                baths ={2}
-                cost = {123}
-                features = {['bed', 'side table', 'cofee maker']}
-                favorites = {[]}
-                id = {1}
-                addToFavorites = {mockFavoriting}
-            />)
+        const { getByText } = renderDetailsCard()
 
         const favBtn = getByText("Favorite")
         expect(favBtn).toBeInTheDocument()
