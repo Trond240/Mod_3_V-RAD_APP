@@ -4,6 +4,10 @@ import './areas.css';
 import PropTypes from 'prop-types';
 
 export const Areas = (props) => {
+    
+
+  
+  
     return (
         <section className='area-card'>
             <h3>{props.name}</h3>
