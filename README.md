@@ -54,3 +54,7 @@ The most challenging part of this project was testing. React testing is very dif
 
 We were able to accomplish all of the functionality and most of the testing. The biggest win was getting asynchronous testing working and understanding how each step is accomplished. 
 
+## Contributors: 
+
+Taras Tarlov 
+Trond Makonese
