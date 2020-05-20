@@ -11,7 +11,7 @@ const renderDetailsCard = () => {
         <Details 
             area = {'Rhino'} 
             street = {'123 Main Street'} 
-            zip = {"80122"}
+            zip = {80122}
             beds = {1}
             baths ={2}
             cost = {123}
