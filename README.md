@@ -21,9 +21,9 @@ The app is very simple to use. After you log in (there is no authentication, you
 ## Screenshots:
 
 ![](public/screenshots/Login_page.png)
-![](public/screenshots/Areas_page.png)
+![](public/screenshots/Area_page.png)
 ![](public/screenshots/Listing_page.png)
-![](public/screenshots/Listing_details_page.png)
+![](public/screenshots/Listing_detail_page.png)
 
 
 ### Technologies Used
