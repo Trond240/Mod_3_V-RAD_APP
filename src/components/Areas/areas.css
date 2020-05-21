@@ -27,3 +27,15 @@
 .view-listing-btn:hover {
     transform: scale(1.1);
     }
+
+
+.areas-title {
+    font-family:'Bungee Outline', cursive;
+    font-size: 2em;
+    color: #F81A5C;
+}
+
+.about-paragraph {
+    margin-top: 10px;
+    margin-bottom:10px;
+}

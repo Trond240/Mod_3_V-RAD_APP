@@ -1,6 +1,7 @@
 import React from 'react';
 import { Areas } from '../Areas/Areas';
 import './areasContainer.css'
+import PropTypes from 'prop-types';
 
 export const AreasContainer = (props) => {
     const allAreaInfo = props.areaInfo.map(area => {
@@ -21,4 +22,8 @@ export const AreasContainer = (props) => {
         {allAreaInfo}
     </section>
     )
+}
+
+AreasContainer.propTypes = {
+    areaInfo: PropTypes.array
 }

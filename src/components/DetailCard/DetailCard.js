@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './detailCard.css'
 
 export const Details = (props) => {
-    console.log(props)
+
     let favorites = props.favorites; 
     
     let favoriteOrUnfavoriteBtn;
 
-
+   
     if(favorites.includes(props.id)) {
         favoriteOrUnfavoriteBtn = <button className='fav-btn' id={props.id} onClick={() => props.removeFromFavorites(props.id)}>Unfavorite</button> 
     } else {
@@ -23,12 +23,19 @@ export const Details = (props) => {
     return(
         
         <section className='detail-card'>
-            <h1>{props.area}</h1>
-            <p>Street: {props.street}</p>
-            <p>Zip: {props.zip}</p>
-            <p>Number of Beds: {props.beds}</p>
-            <p>Number of bath: {props.baths}</p>
-            <p>Cost per night: ${props.cost}</p>
+            <div className="image-container">
+                <img className="property-img" src={`/images/${props.id}_a.jpg`} alt={`Images of ${props.steet}`} />
+                <img className="property-img" src={`/images/${props.id}_b.jpg`} alt={`Images of ${props.steet}`} />
+                <img className="property-img" src={`/images/${props.id}_c.jpg`} alt={`Images of ${props.steet}`} />
+            </div>
+            <h1 className="area-name-title">{props.area}</h1>
+            <ul className="details-list">
+                <li>Street: {props.street}</li>
+                <li>Zip: {props.zip}</li>
+                <li>Number of Beds: {props.beds}</li>
+                <li>Number of bath: {props.baths}</li>
+                <li>Cost per night: ${props.cost}</li>
+            </ul>
             <h2>Speacial Features:</h2>
             <ul>{allFeatures}</ul>
             {favoriteOrUnfavoriteBtn}
@@ -38,4 +45,12 @@ export const Details = (props) => {
 
 Details.propTypes = {
     area: PropTypes.string,
+    street: PropTypes.string,
+    zip: PropTypes.number,
+    beds: PropTypes.number,
+    baths: PropTypes.number,
+    cost: PropTypes.number,
+    features: PropTypes.array,
+    removeFromFavorites: PropTypes.func,
+    addToFavorites:PropTypes.func
 }

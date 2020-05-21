@@ -27,7 +27,6 @@ class LoginPage extends Component {
                 name: this.state.name,
                 email: this.state.email,
                 reason: this.state.reason,
-                favorites: []
             });
             this.setState({
                 name: '',
@@ -63,8 +62,8 @@ class LoginPage extends Component {
                 <div>  
                     <label htmlFor="reason-for-login">Reason for visit</label>
                 </div>
-                <select onChange={e => this.handleChange(e)} id='reason-for-login' name='reason' value={this.state.reason}>
-                    <option  defaultValue>
+                <select data-testid="dropdown" onChange={e => this.handleChange(e)} id='reason-for-login' name='reason' value={this.state.reason}>
+                    <option  defaultValue  >
                     -- select an option --
                     </option>
                     <option value="business">Business</option>
@@ -76,7 +75,7 @@ class LoginPage extends Component {
                 </Link>
                 {this.state.error &&
                 <div>
-                    <p>{this.state.error}</p>
+                    <p className="error-message">{this.state.error}</p>
                 </div>
                 }
             </form>

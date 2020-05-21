@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
-import { getAreas } from '../src/apiCalls.js';
+import { getAreas, getAreasListings } from '../src/apiCalls.js';
 import LoginPage from './components/LoginPage/loginPage';
 import { AreasContainer } from './components/AreasContainer/areasContainer';
-import {ListingContainer} from './components/ListingContainer/listingContainer.js';
+import { ListingContainer } from './components/ListingContainer/listingContainer.js';
 import { ListingDetails } from './components/ListingDetails/listingDetails.js';
 import NavBar from './components/NavBar/navBar';
+import Error from './components/Error/Error'
 
 class App extends Component {
   constructor(){
@@ -48,8 +49,7 @@ class App extends Component {
       .then(areas => {this.setState({ areas })})
       .then(areas => this.state.areas.map(area => {
         return area.listings.map(listing => {
-          return fetch(`https://vrad-api.herokuapp.com${listing}`)
-          .then(res => res.json())
+          getAreasListings(listing)
           .then(listing => {
             this.setState({listingList: [...this.state.listingList, listing]})
           })
@@ -71,7 +71,6 @@ class App extends Component {
       <main className='main-section'>
         {navBar}  
         <Switch>
-         
           <Route path='/areas/:id/listings/:listingID'render={ ({ match }) => <ListingDetails 
           favorites = {this.state.favorites}  
           addToFavorites = {this.addToFavorites}
@@ -81,18 +80,14 @@ class App extends Component {
             return listing.listing_id === parseInt(match.params.listingID)
           })}
           />}/>
-         
           <Route path='/areas/:id/listings' render={ ({ match }) => <ListingContainer 
           listingByArea={this.state.areas.filter(areaListings => 
           areaListings.id === parseInt(match.params.id))}
           match={ match }
           listings={this.state.listingList.filter(listing => listing.area_id === parseInt(match.params.id))}
           />}/>
-         
           <Route path='/areas' render={ () => <AreasContainer areaInfo={this.state.areas}/>} />
-         
           <Route path='/' exact render={ () => <LoginPage setUserInfo={this.setUserInfo} />} />
-         
           <Route path = '/favorites' render={ ({ match }) => <ListingDetails 
           addToFavorites = {this.addToFavorites} 
           removeFromFavorites = {this.removeFromFavorites}
@@ -100,7 +95,11 @@ class App extends Component {
           match={ match }
           listings= {this.findFavorites()}
           />} />
-        
+        <Route
+            path="/error"
+            render={() => <Error />}
+          />
+          <Redirect to="/error"/>
         </Switch>
       </main>
     )

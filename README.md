@@ -1,69 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rad Rentals!- Its like AirBnB.... kind of....  
 
-## Available Scripts
+This project was the first group project for Module 3 at Turing School of Software And Design. 
 
-In the project directory, you can run:
+The goal of this project was to get familiar with several new technologies used in React Framework. The main focus was on fetching data from a server and displaying the data on the DOM. Every component had to be tested using Jest and React Testing Library. 
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installing / Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Clone down the repo. Use terminal commands to navigate to the root folder of the repo locally.
 
-### `npm test`
+1. npm install
+2. cd into src folder
+3. npm start
+4. navigate to local port:3000 in your browser
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Steps to use the App
 
-### `npm run build`
+The app is very simple to use. After you log in (there is no authentication, you can put whatever you want) you can navigate to different areas and listings. You can also add listings to your favorites. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![](public/screenshots/Login_page.png)
+![](public/screenshots/Area_page.png)
+![](public/screenshots/Listing_page.png)
+![](public/screenshots/Listing_detail_page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* React
+* JSX
+* Jest and React Testing Library
+* Fetch API
+* React Router
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Learning Goals
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Practice and demonstrate understanding of the following:
 
-## Learn More
+* Using Basic React Class and Functional Components
+* Implement Unit and Integration testing with React Testing Library
+* Become familiar with React Router
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Challenges
 
-### Analyzing the Bundle Size
+The most challenging part of this project was testing. React testing is very different from testing vanilla javascript functions/methods and required a lot more planning. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Wins
 
-### Making a Progressive Web App
+We were able to accomplish all of the functionality and most of the testing. The biggest win was getting asynchronous testing working and understanding how each step is accomplished. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Contributors: 
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# Mod_3_V-RAD_APP
+Taras Tarlov 
+Trond Makonese
